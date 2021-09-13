@@ -6,7 +6,7 @@
           Welcome to PeraHub NFT Wet Market
         </h1>
         <h2 class="subtitle">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+          Online Agriculture Marketplace Blockchain
         </h2>
       </div>
     </div>
