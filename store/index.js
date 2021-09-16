@@ -1,113 +1,113 @@
 export const state = () => ({
   products: [
-    {
-      id: 1,
-      title: 'Product 1',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
-      price: 50,
-      ratings: 3,
-      reviews: 5,
-      isAddedToCart: false,
-      isAddedBtn: false,
-      isFavourite: false,
-      quantity: 1
-    },
-    {
-      id: 2,
-      title: 'Product 2',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
-      price: 35,
-      ratings: 5,
-      reviews: 10,
-      isAddedToCart: false,
-      isAddedBtn: false,
-      isFavourite: false,
-      quantity: 1
-    },
-    {
-      id: 3,
-      title: 'Product 3',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
-      price: 110,
-      ratings: 2,
-      reviews: 3,
-      isAddedToCart: false,
-      isAddedBtn: false,
-      isFavourite: false,
-      quantity: 1
-    },
-    {
-      id: 4,
-      title: 'Product 4',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
-      price: 50,
-      ratings: 1,
-      reviews: 0,
-      isAddedToCart: false,
-      isAddedBtn: false,
-      isFavourite: false,
-      quantity: 1
-    },
-    {
-      id: 5,
-      title: 'Product 5',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
-      price: 35,
-      ratings: 4,
-      reviews: 2,
-      isAddedToCart: false,
-      isAddedBtn: false,
-      isFavourite: false,
-      quantity: 1
-    },
-    {
-      id: 6,
-      title: 'Product 6',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
-      price: 110,
-      ratings: 5,
-      reviews: 1,
-      isAddedToCart: false,
-      isAddedBtn: false,
-      isFavourite: false,
-      quantity: 1
-    },
-    {
-      id: 7,
-      title: 'Product 7',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
-      price: 50,
-      ratings: 5,
-      reviews: 7,
-      isAddedToCart: false,
-      isAddedBtn: false,
-      isFavourite: false,
-      quantity: 1
-    },
-    {
-      id: 8,
-      title: 'Product 8',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
-      price: 35,
-      ratings: 3,
-      reviews: 0,
-      isAddedToCart: false,
-      isAddedBtn: false,
-      isFavourite: false,
-      quantity: 1
-    },
-    {
-      id: 9,
-      title: 'Product 9',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
-      price: 110,
-      ratings: 4,
-      reviews: 2,
-      isAddedToCart: false,
-      isAddedBtn: false,
-      isFavourite: false,
-      quantity: 1
-    }
+    // {
+    //   id: 1,
+    //   title: 'Product 1',
+    //   description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+    //   price: 50,
+    //   ratings: 3,
+    //   reviews: 5,
+    //   isAddedToCart: false,
+    //   isAddedBtn: false,
+    //   isFavourite: false,
+    //   quantity: 1
+    // },
+    // {
+    //   id: 2,
+    //   title: 'Product 2',
+    //   description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+    //   price: 35,
+    //   ratings: 5,
+    //   reviews: 10,
+    //   isAddedToCart: false,
+    //   isAddedBtn: false,
+    //   isFavourite: false,
+    //   quantity: 1
+    // },
+    // {
+    //   id: 3,
+    //   title: 'Product 3',
+    //   description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+    //   price: 110,
+    //   ratings: 2,
+    //   reviews: 3,
+    //   isAddedToCart: false,
+    //   isAddedBtn: false,
+    //   isFavourite: false,
+    //   quantity: 1
+    // },
+    // {
+    //   id: 4,
+    //   title: 'Product 4',
+    //   description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+    //   price: 50,
+    //   ratings: 1,
+    //   reviews: 0,
+    //   isAddedToCart: false,
+    //   isAddedBtn: false,
+    //   isFavourite: false,
+    //   quantity: 1
+    // },
+    // {
+    //   id: 5,
+    //   title: 'Product 5',
+    //   description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+    //   price: 35,
+    //   ratings: 4,
+    //   reviews: 2,
+    //   isAddedToCart: false,
+    //   isAddedBtn: false,
+    //   isFavourite: false,
+    //   quantity: 1
+    // },
+    // {
+    //   id: 6,
+    //   title: 'Product 6',
+    //   description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+    //   price: 110,
+    //   ratings: 5,
+    //   reviews: 1,
+    //   isAddedToCart: false,
+    //   isAddedBtn: false,
+    //   isFavourite: false,
+    //   quantity: 1
+    // },
+    // {
+    //   id: 7,
+    //   title: 'Product 7',
+    //   description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+    //   price: 50,
+    //   ratings: 5,
+    //   reviews: 7,
+    //   isAddedToCart: false,
+    //   isAddedBtn: false,
+    //   isFavourite: false,
+    //   quantity: 1
+    // },
+    // {
+    //   id: 8,
+    //   title: 'Product 8',
+    //   description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+    //   price: 35,
+    //   ratings: 3,
+    //   reviews: 0,
+    //   isAddedToCart: false,
+    //   isAddedBtn: false,
+    //   isFavourite: false,
+    //   quantity: 1
+    // },
+    // {
+    //   id: 9,
+    //   title: 'Product 9',
+    //   description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+    //   price: 110,
+    //   ratings: 4,
+    //   reviews: 2,
+    //   isAddedToCart: false,
+    //   isAddedBtn: false,
+    //   isFavourite: false,
+    //   quantity: 1
+    // }
   ],
   userInfo: {
     isLoggedIn: false,
@@ -234,7 +234,117 @@ export const mutations = {
   },
   SET_USER(state, authUser) {
     state.authUser = authUser
+  },
+
+  SET_PRODUCTS(state, productData){
+    state.products = productData
   }
+}
+
+export const actions = {
+  // async nuxtServerInit({ commit }) {
+  //   const res = await this.$axios.get("/api/current_user")
+  //   commit("SET_USER", res.data)
+  // },
+
+  async nuxtServerInit({ commit }) {
+    // const res = await this.$axios.get("http://nft-market.dev.perahub.com.ph/products")
+    // commit("SET_PRODUCTS",res.docs)
+    commit("SET_PRODUCTS", [ {
+        id: 1,
+        title: 'Palay',
+        description: 'The best palay',
+        price: 1500,
+        ratings: 3,
+        reviews: 5,
+        image: 'https://images.squarespace-cdn.com/content/v1/59413d96e6f2e1c6837c7ecd/1615111628371-C371I0555JQ22D9MKPWX/GreenNFTs_Logo.png?format=500w',
+        address: "0x729d7a17B73AB682d333c4C5cdD8C86112f3D67e",
+        isAddedToCart: false,
+        isAddedBtn: false,
+        isFavourite: false,
+        quantity: 1
+      },
+      {
+        id: 2,
+        title: 'Regular Milled(Local)',
+        description: 'Regular milled rice',
+        price: 1950,
+        ratings: 5,
+        reviews: 10,
+        image: 'https://images.squarespace-cdn.com/content/v1/59413d96e6f2e1c6837c7ecd/1615111628371-C371I0555JQ22D9MKPWX/GreenNFTs_Logo.png?format=500w',
+        address: "0x729d7a17B73AB682d333c4C5cdD8C86112f3D67e",
+        isAddedToCart: false,
+        isAddedBtn: false,
+        isFavourite: false,
+        quantity: 1
+      },
+      {
+        id: 3,
+        title: 'Well-Milled(Local)',
+        description: 'Well milled rice',
+        price: 2200,
+        ratings: 2,
+        reviews: 3,
+        image: 'https://images.squarespace-cdn.com/content/v1/59413d96e6f2e1c6837c7ecd/1615111628371-C371I0555JQ22D9MKPWX/GreenNFTs_Logo.png?format=500w',
+        address: "0x729d7a17B73AB682d333c4C5cdD8C86112f3D67e",
+        isAddedToCart: false,
+        isAddedBtn: false,
+        isFavourite: false,
+        quantity: 1
+      },
+      {
+        id: 4,
+        title: 'Premium Rice(Local)',
+        description: 'Premium rice local',
+        price: 50,
+        ratings: 1,
+        reviews: 0,
+        image: 'https://images.squarespace-cdn.com/content/v1/59413d96e6f2e1c6837c7ecd/1615111628371-C371I0555JQ22D9MKPWX/GreenNFTs_Logo.png?format=500w',
+        isAddedToCart: false,
+        address: "0x729d7a17B73AB682d333c4C5cdD8C86112f3D67e",
+        isAddedBtn: false,
+        isFavourite: false,
+        quantity: 1
+      },
+      {
+        id: 5,
+        title: 'Premium Rice(Imported)',
+        description: 'Premium rice imported',
+        price: 35,
+        ratings: 4,
+        reviews: 2,
+        image: 'https://images.squarespace-cdn.com/content/v1/59413d96e6f2e1c6837c7ecd/1615111628371-C371I0555JQ22D9MKPWX/GreenNFTs_Logo.png?format=500w',
+        address: "0x729d7a17B73AB682d333c4C5cdD8C86112f3D67e",
+        isAddedToCart: false,
+        isAddedBtn: false,
+        isFavourite: false,
+        quantity: 1
+      },
+      {
+        id: 6,
+        title: 'Well-Milled(Imported)',
+        description: 'Well milled rice 25% broken',
+        price: 110,
+        ratings: 5,
+        reviews: 1,
+        image: 'https://images.squarespace-cdn.com/content/v1/59413d96e6f2e1c6837c7ecd/1615111628371-C371I0555JQ22D9MKPWX/GreenNFTs_Logo.png?format=500w',
+        address: "0x729d7a17B73AB682d333c4C5cdD8C86112f3D67e",
+        isAddedToCart: false,
+        isAddedBtn: false,
+        isFavourite: false,
+        quantity: 1
+      }])
+  },
+
+  // async logout({ commit }) {
+  //   const { data } = await this.$axios.get("/api/logout")
+  //   if (data.ok) commit("SET_USER", null)
+  // },
+
+  // async handleToken({ commit }, token) {
+  //   const res = await this.$axios.post("/api/stripe", token)
+  //   commit("SET_USER", res.data)
+  // }
 }
 /*
 export const actions = {
