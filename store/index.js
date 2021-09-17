@@ -251,12 +251,12 @@ export const mutations = {
           isAddedToCart: false,
           isAddedBtn: false,
           isFavourite: false,
-          id: product._id
+          id: product.item_id,
+          ratings: 5,
+          reviews: 5,
         }
     })
-
   },
-
 }
 
 export const actions = {
@@ -266,7 +266,7 @@ export const actions = {
   // },
 
   async nuxtServerInit({ commit }) {
-    const res = await this.$axios.get("http://nft-market.dev.perahub.com.ph/products")
+    const res = await this.$axios.get("http://localhost:4001/products")
     commit("SET_PRODUCTS", res.data.docs)
 
     // console.log(res.data.docs);
@@ -359,19 +359,10 @@ export const actions = {
   },
 
   async PaymentRequest({ commit }, payload) {
-    const { data } = await this.$axios.post("/api/logout", payload)
+    const { data } = await this.$axios.put(`http://localhost:4001/products/${payload.id}/send`, payload)
     return data;
   },
 
-  // async logout({ commit }) {
-  //   const { data } = await this.$axios.get("/api/logout")
-  //   if (data.ok) commit("SET_USER", null)
-  // },
-
-  // async handleToken({ commit }, token) {
-  //   const res = await this.$axios.post("/api/stripe", token)
-  //   commit("SET_USER", res.data)
-  // }
 }
 /*
 export const actions = {

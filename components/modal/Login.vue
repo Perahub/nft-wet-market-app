@@ -120,7 +120,7 @@ export default {
         if (window.ethereum) {
           await window.ethereum.send('eth_requestAccounts');
           window.web3 = new Web3(window.ethereum);
-          window.alert(ethereum.selectedAddress);
+
           this.$store.commit('setUserEthAddress', ethereum.selectedAddress);
           return true;
         }
