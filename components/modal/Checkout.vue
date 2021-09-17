@@ -13,9 +13,6 @@
 						<p>{{ product.title }}  {{ product.quantity > 0 ?  ` - Quantity: ${product.quantity}` : ''}}</p>
 						<p>{{ product.price }} Php</p>
 					</div>
-          <div>
-            <input type="text" name="receiver_address" v-model="receiver_address">
-          </div>
 					<div v-if="products.length === 0">
 						<p>{{ cartEmptyLabel }}</p>
 					</div>
@@ -42,8 +39,7 @@ export default {
 			removeLabel: 'Remove from cart',
 			cartEmptyLabel: 'Your cart is empty',
 			closeLabel: 'Close',
-			isCheckoutSection: false,
-      receiver_address: null
+			isCheckoutSection: false
 		}
 	},
 
@@ -109,8 +105,8 @@ export default {
 			if (this.isUserLoggedIn) {
         this.isCheckoutSection = true;
         this.$store.dispatch('PaymentRequest',{
-          receiver_address: this.receiver_address,
-          sender_address: this.$store.getters.getUserEthAddress,
+          receiver_address: this.$store.getters.getUserEthAddress,
+          sender_address: this.products[0].address,
           id: this.products[0]._id
         });
 
