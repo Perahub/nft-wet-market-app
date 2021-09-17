@@ -11,14 +11,14 @@
 					<div class="box" v-for="product in products" :key="product.id">
 						<button class="is-pulled-right button is-info is-inverted" @click="removeFromCart(product.id)">{{ removeLabel }}</button>
 						<p>{{ product.title }}  {{ product.quantity > 0 ?  ` - Quantity: ${product.quantity}` : ''}}</p>
-						<p>{{ product.price }} &euro;</p>
+						<p>{{ product.price }} Php</p>
 					</div>
 					<div v-if="products.length === 0">
 						<p>{{ cartEmptyLabel }}</p>
 					</div>
 				</div>
 				<div v-if="isCheckoutSection">
-					<p>You bought it :-)</p>
+					<p>Thank you for buying Agri Products :-)</p>
 				</div>
 			</section>
 			<footer class="modal-card-foot">
@@ -32,7 +32,7 @@
 <script>
 export default {
 	name: 'checkout',
-    
+
 	data () {
 		return {
 			modalTitle: 'Checkout',
@@ -72,13 +72,13 @@ export default {
 				});
 
 				finalPrice = pricesArray.reduce((a, b) => a + b, 0); // sum the prices
-				
+
 				if (totalProducts > 1) { // set plural or singular
 					productLabel = 'products';
 				} else {
 					productLabel = 'product';
 				}
-				return `Buy ${totalProducts} ${productLabel} at ${finalPrice}€`;
+				return `Buy ${totalProducts} ${productLabel} at ${finalPrice}`;
 		},
 		isUserLoggedIn () {
 			return this.$store.getters.isUserLoggedIn;
@@ -105,6 +105,7 @@ export default {
 			if (this.isUserLoggedIn) {
 				this.isCheckoutSection = true;
 			} else {
+        alert('Im here');
 				this.$store.commit('showCheckoutModal', false);
 				this.$store.commit('showLoginModal', true);
 			}

@@ -114,7 +114,8 @@ export const state = () => ({
     isSignedUp: false,
     hasSearched: false,
     name: '',
-    productTitleSearched: ''
+    productTitleSearched: '',
+    eth_address: ''
   },
   systemInfo: {
     openLoginModal: false,
@@ -145,6 +146,9 @@ export const getters = {
   },
   getUserName: state => {
     return state.userInfo.name;
+  },
+  getUserEthAddress: state => {
+    return state.userInfo.eth_address;
   },
   isLoginModalOpen: state => {
     return state.systemInfo.openLoginModal;
@@ -199,6 +203,9 @@ export const mutations = {
   setUserName: (state, name) => {
     state.userInfo.name = name;
   },
+  setUserEthAddress: (state, ethAddress) => {
+    state.userInfo.eth_address = ethAddress;
+  },
   setProductTitleSearched: (state, titleSearched) => {
     state.userInfo.productTitleSearched = titleSearched;
   },
@@ -237,8 +244,19 @@ export const mutations = {
   },
 
   SET_PRODUCTS(state, productData){
-    state.products = productData
-  }
+
+    state.products = productData.map(product => {
+        return {
+          ...product,
+          isAddedToCart: false,
+          isAddedBtn: false,
+          isFavourite: false,
+          id: product._id
+        }
+    })
+
+  },
+
 }
 
 export const actions = {
@@ -248,92 +266,101 @@ export const actions = {
   // },
 
   async nuxtServerInit({ commit }) {
-    // const res = await this.$axios.get("http://nft-market.dev.perahub.com.ph/products")
-    // commit("SET_PRODUCTS",res.docs)
-    commit("SET_PRODUCTS", [ {
-        id: 1,
-        title: 'Palay',
-        description: 'The best palay',
-        price: 1500,
-        ratings: 3,
-        reviews: 5,
-        image: 'https://images.squarespace-cdn.com/content/v1/59413d96e6f2e1c6837c7ecd/1615111628371-C371I0555JQ22D9MKPWX/GreenNFTs_Logo.png?format=500w',
-        address: "0x729d7a17B73AB682d333c4C5cdD8C86112f3D67e",
-        isAddedToCart: false,
-        isAddedBtn: false,
-        isFavourite: false,
-        quantity: 1
-      },
-      {
-        id: 2,
-        title: 'Regular Milled(Local)',
-        description: 'Regular milled rice',
-        price: 1950,
-        ratings: 5,
-        reviews: 10,
-        image: 'https://images.squarespace-cdn.com/content/v1/59413d96e6f2e1c6837c7ecd/1615111628371-C371I0555JQ22D9MKPWX/GreenNFTs_Logo.png?format=500w',
-        address: "0x729d7a17B73AB682d333c4C5cdD8C86112f3D67e",
-        isAddedToCart: false,
-        isAddedBtn: false,
-        isFavourite: false,
-        quantity: 1
-      },
-      {
-        id: 3,
-        title: 'Well-Milled(Local)',
-        description: 'Well milled rice',
-        price: 2200,
-        ratings: 2,
-        reviews: 3,
-        image: 'https://images.squarespace-cdn.com/content/v1/59413d96e6f2e1c6837c7ecd/1615111628371-C371I0555JQ22D9MKPWX/GreenNFTs_Logo.png?format=500w',
-        address: "0x729d7a17B73AB682d333c4C5cdD8C86112f3D67e",
-        isAddedToCart: false,
-        isAddedBtn: false,
-        isFavourite: false,
-        quantity: 1
-      },
-      {
-        id: 4,
-        title: 'Premium Rice(Local)',
-        description: 'Premium rice local',
-        price: 50,
-        ratings: 1,
-        reviews: 0,
-        image: 'https://images.squarespace-cdn.com/content/v1/59413d96e6f2e1c6837c7ecd/1615111628371-C371I0555JQ22D9MKPWX/GreenNFTs_Logo.png?format=500w',
-        isAddedToCart: false,
-        address: "0x729d7a17B73AB682d333c4C5cdD8C86112f3D67e",
-        isAddedBtn: false,
-        isFavourite: false,
-        quantity: 1
-      },
-      {
-        id: 5,
-        title: 'Premium Rice(Imported)',
-        description: 'Premium rice imported',
-        price: 35,
-        ratings: 4,
-        reviews: 2,
-        image: 'https://images.squarespace-cdn.com/content/v1/59413d96e6f2e1c6837c7ecd/1615111628371-C371I0555JQ22D9MKPWX/GreenNFTs_Logo.png?format=500w',
-        address: "0x729d7a17B73AB682d333c4C5cdD8C86112f3D67e",
-        isAddedToCart: false,
-        isAddedBtn: false,
-        isFavourite: false,
-        quantity: 1
-      },
-      {
-        id: 6,
-        title: 'Well-Milled(Imported)',
-        description: 'Well milled rice 25% broken',
-        price: 110,
-        ratings: 5,
-        reviews: 1,
-        image: 'https://images.squarespace-cdn.com/content/v1/59413d96e6f2e1c6837c7ecd/1615111628371-C371I0555JQ22D9MKPWX/GreenNFTs_Logo.png?format=500w',
-        address: "0x729d7a17B73AB682d333c4C5cdD8C86112f3D67e",
-        isAddedToCart: false,
-        isAddedBtn: false,
-        isFavourite: false,
-        quantity: 1
-      }])
+    const res = await this.$axios.get("http://nft-market.dev.perahub.com.ph/products")
+    commit("SET_PRODUCTS", res.data.docs)
+
+    // console.log(res.data.docs);
+
+
+    // commit("SET_PRODUCTS", [ {
+    //     id: 1,
+    //     title: 'Palay',
+    //     description: 'The best palay',
+    //     price: 1500,
+    //     ratings: 3,
+    //     reviews: 5,
+    //     image: 'https://images.squarespace-cdn.com/content/v1/59413d96e6f2e1c6837c7ecd/1615111628371-C371I0555JQ22D9MKPWX/GreenNFTs_Logo.png?format=500w',
+    //     address: "0x125269b5a232F82Ebf946fC5Fd0Aa685b79cE225",
+    //     isAddedToCart: false,
+    //     isAddedBtn: false,
+    //     isFavourite: false,
+    //     quantity: 1
+    //   },
+    //   {
+    //     id: 2,
+    //     title: 'Regular Milled(Local)',
+    //     description: 'Regular milled rice',
+    //     price: 1950,
+    //     ratings: 5,
+    //     reviews: 10,
+    //     image: 'https://images.squarespace-cdn.com/content/v1/59413d96e6f2e1c6837c7ecd/1615111628371-C371I0555JQ22D9MKPWX/GreenNFTs_Logo.png?format=500w',
+    //     address: "0x125269b5a232F82Ebf946fC5Fd0Aa685b79cE225",
+    //     isAddedToCart: false,
+    //     isAddedBtn: false,
+    //     isFavourite: false,
+    //     quantity: 1
+    //   },
+    //   {
+    //     id: 3,
+    //     title: 'Well-Milled(Local)',
+    //     description: 'Well milled rice',
+    //     price: 2200,
+    //     ratings: 2,
+    //     reviews: 3,
+    //     image: 'https://images.squarespace-cdn.com/content/v1/59413d96e6f2e1c6837c7ecd/1615111628371-C371I0555JQ22D9MKPWX/GreenNFTs_Logo.png?format=500w',
+    //     address: "0x125269b5a232F82Ebf946fC5Fd0Aa685b79cE225",
+    //     isAddedToCart: false,
+    //     isAddedBtn: false,
+    //     isFavourite: false,
+    //     quantity: 1
+    //   },
+    //   {
+    //     id: 4,
+    //     title: 'Premium Rice(Local)',
+    //     description: 'Premium rice local',
+    //     price: 50,
+    //     ratings: 1,
+    //     reviews: 0,
+    //     image: 'https://images.squarespace-cdn.com/content/v1/59413d96e6f2e1c6837c7ecd/1615111628371-C371I0555JQ22D9MKPWX/GreenNFTs_Logo.png?format=500w',
+    //     isAddedToCart: false,
+    //     address: "0x125269b5a232F82Ebf946fC5Fd0Aa685b79cE225",
+    //     isAddedBtn: false,
+    //     isFavourite: false,
+    //     quantity: 1
+    //   },
+    //   {
+    //     id: 5,
+    //     title: 'Premium Rice(Imported)',
+    //     description: 'Premium rice imported',
+    //     price: 35,
+    //     ratings: 4,
+    //     reviews: 2,
+    //     image: 'https://images.squarespace-cdn.com/content/v1/59413d96e6f2e1c6837c7ecd/1615111628371-C371I0555JQ22D9MKPWX/GreenNFTs_Logo.png?format=500w',
+    //     address: "0x125269b5a232F82Ebf946fC5Fd0Aa685b79cE225",
+    //     isAddedToCart: false,
+    //     isAddedBtn: false,
+    //     isFavourite: false,
+    //     quantity: 1
+    //   },
+    //   {
+    //     id: 6,
+    //     title: 'Well-Milled(Imported)',
+    //     description: 'Well milled rice 25% broken',
+    //     price: 110,
+    //     ratings: 5,
+    //     reviews: 1,
+    //     image: 'https://images.squarespace-cdn.com/content/v1/59413d96e6f2e1c6837c7ecd/1615111628371-C371I0555JQ22D9MKPWX/GreenNFTs_Logo.png?format=500w',
+    //     address: "0x125269b5a232F82Ebf946fC5Fd0Aa685b79cE225",
+    //     isAddedToCart: false,
+    //     isAddedBtn: false,
+    //     isFavourite: false,
+    //     quantity: 1
+    //   }])
+  },
+
+  async PaymentRequest({ commit }, payload) {
+    const { data } = await this.$axios.post("/api/logout", payload)
+    return data;
   },
 
   // async logout({ commit }) {

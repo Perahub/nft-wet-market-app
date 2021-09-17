@@ -2,7 +2,7 @@
   <div class="section">
     <div class="card is-clearfix columns">
         <figure class="card-image is-480x480 column is-one-thirds">
-          <img src="https://bulma.io/images/placeholders/480x480.png">
+          <img src="https://images.squarespace-cdn.com/content/v1/59413d96e6f2e1c6837c7ecd/1615111628371-C371I0555JQ22D9MKPWX/GreenNFTs_Logo.png?format=500w">
         </figure>
         <div class="card-content column is-two-thirds">
           <div class="card-content__title">
@@ -57,7 +57,7 @@
             </div>
           </div>
           <div class="card-content__price is-pulled-left">
-            <span class="title is-3"><strong>{{ product.price }}&euro;</strong></span>
+            <span class="title is-3"><strong>{{ product.price }}Php</strong></span>
           </div>
           <div class="card-content__btn is-pulled-right">
             <button class="button is-primary" v-if="!isAddedBtn" @click="addToCart(product.id)">{{ addToCartLabel }}</button>

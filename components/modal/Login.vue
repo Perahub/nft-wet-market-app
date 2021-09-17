@@ -31,7 +31,7 @@
             </div>
             <div class="field">
               <p class="control has-icons-left has-icons-right">
-                <input 
+                <input
                   :class="[highlightPasswordWithError ? 'input is-danger' : 'input']"
                   type="password"
                   placeholder="Your password"
@@ -69,7 +69,7 @@
 
 <script>
 import { isValidEmail } from '@/assets/validators';
-
+import Web3 from 'web3';
 export default {
   name: 'login',
 
@@ -108,7 +108,7 @@ export default {
     closeModal () {
       this.$store.commit('showLoginModal', false);
     },
-    checkForm (e) {
+    async checkForm (e) {
       e.preventDefault();
 
       if (this.email && this.password) {
@@ -116,6 +116,15 @@ export default {
         this.highlightPasswordWithError = false;
         this.isFormSuccess = true;
         this.$store.commit('isUserLoggedIn', this.isFormSuccess);
+
+        if (window.ethereum) {
+          await window.ethereum.send('eth_requestAccounts');
+          window.web3 = new Web3(window.ethereum);
+          window.alert(ethereum.selectedAddress);
+          this.$store.commit('setUserEthAddress', ethereum.selectedAddress);
+          return true;
+        }
+        return false;
       }
 
       if (!this.email) {
